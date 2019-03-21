@@ -1,4 +1,5 @@
 defmodule Metex.Worker do
+
   def temperature_of(location) do
     result = location |> url_for |> HTTPoison.get |> parse_response
     case result do
@@ -16,6 +17,7 @@ defmodule Metex.Worker do
       _ ->
         IO.puts "don't know how to process this message"
     end
+    loop()
   end
 
   defp url_for(location) do
