@@ -18,6 +18,10 @@ defmodule MetexOtp.Worker do
     GenServer.cast(pid, :reset_stats)
   end
 
+  def stop(pid) do
+    GenServer.cast(pid, :stop)
+  end
+
   ## Server Callback
   def init(:ok) do
     {:ok, %{}}
@@ -41,6 +45,21 @@ defmodule MetexOtp.Worker do
 
   def handle_cast(:reset_stats, _stats) do
     {:noreply, %{}}
+  end
+
+  def handle_cast(:stop, stats) do
+    {:stop, :normal, :ok, stats}
+  end
+
+  def terminate(reason, stats) do
+    IO.puts "server terminated because of #{inspect reason}"
+    inspect stats
+    :ok
+  end
+
+  def handle_info(msg, stats) do
+    IO.puts "received #{inspect msg}"
+    {:noreply, stats}
   end
 
   ## Helper Functions
