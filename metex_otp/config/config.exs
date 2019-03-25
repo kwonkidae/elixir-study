@@ -10,15 +10,15 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :metex_otp, key: :value
+#     config :metex, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:metex_otp, :key)
+#     Application.get_env(:metex, :key)
 #
 # You can also configure a third-party app:
 #
-#     config :logger, level: :info
+    config :logger, level: :info
 #
 
 # It is also possible to import configuration files, relative to this
