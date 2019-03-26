@@ -48,7 +48,7 @@ defmodule MetexOtp.Worker do
   end
 
   def handle_cast(:stop, stats) do
-    {:stop, :normal, :ok, stats}
+    {:stop, :normal, stats}
   end
 
   def terminate(reason, stats) do
