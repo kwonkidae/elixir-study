@@ -10,7 +10,7 @@ defmodule Pooly do
       [name: "Pool3",
         mfa: {SampleWorker, :start_link, []}, size: 4]
     ]
-    start_pools(pool_config)
+    start_pools(pools_config)
   end
 
   def start_pools(pools_config) do
@@ -22,7 +22,7 @@ defmodule Pooly do
   end
 
   def checkin(pool_name, worker_pid) do
-   Pooly.Server.checkin(worker_pid)
+   Pooly.Server.checkin(pool_name, worker_pid)
   end
 
   def status(pool_name) do
