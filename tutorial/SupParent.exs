@@ -10,7 +10,7 @@ defmodule Parent do
       worker(Child, [limit_num], [id: limit_num, restart: :permanent])
     end)
 
-    supervise(children, strategy: :one_for_one, max_restarts: 5)
+    supervise(children, strategy: :one_for_one, max_restarts: 20)
   end
 end
 
@@ -36,4 +36,4 @@ end
 
 Parent.start_link([1])
 
-Process.sleep 5000
+Process.sleep 20_000
